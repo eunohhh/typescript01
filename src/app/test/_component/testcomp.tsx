@@ -5,11 +5,11 @@ const MatterportViewer = dynamic(() => import('@matterport/r3f').then(module => 
 import { MpSdk } from '@matterport/r3f'
 import React, { useEffect, useState, Suspense } from 'react';
 
-// const useMatterportSdk = () => import('@matterport/r3f').then(module => ({ default: module.useMatterportSdk }));
+// const mpSdk = useMatterportSdk();
+// useMatterportSdk 훅은 r3f 캔버스 컴포넌트의 자식들(예를들어 Box 등) 에서만 사용 가능
+// 같은 레벨에서 쓸거면 onPlaying 에서 받아서 써야함!!!
 
 export default function TestComp(){
-
-    // const mpSdk = useMatterportSdk();
 
     return(
         <Suspense fallback={<div>Loading...</div>}>
