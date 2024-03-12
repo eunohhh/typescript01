@@ -1,4 +1,4 @@
-import TestComp from "./_component/testcomp";
+import TestComp from "./_component/mpWebcomp";
 import { TestData } from "@/types/types";
 import Start from "./_component/start";
 import Image from "next/image";

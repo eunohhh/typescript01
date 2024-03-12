@@ -1,9 +1,11 @@
+"use client"
 import { TestData } from '@/types/types';
 import styles from '../page.module.css';
 import React, { useState, useEffect, useRef } from "react";
-import HelpLoader from './helploader';
-import MpWebComp from './testcomp';
-import { MpSdk } from '@matterport/r3f'
+import HelpLoader from './_loaders/helploader';
+import MpWebComp from './mpWebcomp';
+import { MpSdk } from '@matterport/r3f';
+import showcaseLoader from './_utils/showcaseLoader';
 
 interface TestCompProps {
     mpModels: TestData;
@@ -31,8 +33,11 @@ export default function MainUi ({
 
     const playBtn = useRef<HTMLDivElement>(null);
 
-    const handleLoading = (mpsdk : MpSdk) => {
-        setWebCompLoaded(true);
+    const handleLoading = (mpSdk : MpSdk) => {
+        setWebCompLoaded(true); // 웹컴포넌트 로드 상태 트루
+
+        showcaseLoader(mpSdk); // 쇼케이스 로더 => 대부분의 작업을 여기서??
+
     };
 
     const handleStart = () => {
