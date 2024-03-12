@@ -4,7 +4,7 @@ export async function GET() {
         const test = {
             back : '/assets/background/defragmentation.webp',
             description: `2023 언폴드엑스 기획자캠프 선정프로젝트, 조각모음 defragmentation, 2023.09.02_09.26, 문래예술공장 갤러리M30`,
-            downlogo : [false, ""],
+            downLogo : [false, ""],
             isBgm : [false, ""],
             isPublic : true,
             keywords : "조각모음,언폴드X,unfoldX,defragmentation",
@@ -17,7 +17,8 @@ export async function GET() {
             title : "조각모음",
             unique : "defragmentation",
             url : "https://xr.screenxyz.net/defragmentation",
-            video : [true, "low3_final.mp4"]
+            video : [true, "low3_final.mp4"],
+            route : '/defragmentation'
         };
 
         return Response.json(test, {status: 200});

@@ -36,7 +36,7 @@ export default function MainUi ({
     const handleLoading = (mpSdk : MpSdk) => {
         setWebCompLoaded(true); // 웹컴포넌트 로드 상태 트루
 
-        showcaseLoader(mpSdk); // 쇼케이스 로더 => 대부분의 작업을 여기서??
+        showcaseLoader(mpSdk, mpModels); // 쇼케이스 로더 => 대부분의 작업을 여기서??
 
     };
 
@@ -50,7 +50,7 @@ export default function MainUi ({
     };
 
     useEffect(() => {
-        console.log(webCompLoaded)
+        // console.log(webCompLoaded)
         if(webCompLoaded){
             setOpacityL(0);
             setOpacity(1);

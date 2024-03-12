@@ -1,7 +1,7 @@
 export interface TestData {
     back: string;
     description: string;
-    downlogo: [boolean, string];
+    downLogo: [boolean, string];
     isBgm: [boolean, string];
     isPublic: boolean;
     keywords: string;
@@ -15,4 +15,17 @@ export interface TestData {
     unique: string;
     url: string;
     video: [boolean, string];
+    route: string;
+    urlKey : string;
+    parentFolder : string;
+    backUrl: string;
+    logoUrl: string;
+    lowLogoUrl: string;
+    vidsUrl: string[];
+    objsUrl: string[];
+    planesUrl: string[];
+    songNames: string[];
+    bgmsUrl: string[];
+    cdUrl: string[];
+
 }
