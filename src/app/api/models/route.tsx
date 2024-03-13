@@ -1,5 +1,5 @@
 export async function GET() {
-    
+    //downLogo
     try{
         const test = {
             back : '/assets/background/defragmentation.webp',

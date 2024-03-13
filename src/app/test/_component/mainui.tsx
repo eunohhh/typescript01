@@ -1,11 +1,15 @@
 "use client"
-import { TestData } from '@/types/types';
+import { TestData, customTagData } from '@/types/types';
+import { Tag } from '@/types/sdk';
 import styles from '../page.module.css';
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext, RefObject } from "react";
 import HelpLoader from './_loaders/helploader';
 import MpWebComp from './mpWebcomp';
 import { MpSdk } from '@matterport/r3f';
 import showcaseLoader from './_utils/showcaseLoader';
+import VideoComp from './videoComp';
+import VideoContext from "@/context/videoContext";
+import AudioContext from "@/context/audioContext";
 
 interface TestCompProps {
     mpModels: TestData;
@@ -30,14 +34,19 @@ export default function MainUi ({
     const [ startClassName, setClassName ] = useState(styles.start_button_box); // 스타트시 로고 노출
     const [ pointerEv, setPointerEv ] = useState("none" as React.CSSProperties["pointerEvents"]); // 기본 포인터 동작 none으로 시작(엔터 클릭 못하게)
     const [ opacity, setOpacity ] = useState(0); // 스타트버튼 오퍼시티
+    const [ bindArr, setBindArr ] = useState<(customTagData[] | Tag.Attachment[])[] | null>(null);
 
     const playBtn = useRef<HTMLDivElement>(null);
 
-    const handleLoading = (mpSdk : MpSdk) => {
+    const videoRef = useContext(VideoContext); 
+    const audioRef = useContext(AudioContext); 
+
+    const handleLoading = async (mpSdk : MpSdk) => {
+
         setWebCompLoaded(true); // 웹컴포넌트 로드 상태 트루
 
-        showcaseLoader(mpSdk, mpModels); // 쇼케이스 로더 => 대부분의 작업을 여기서??
-
+        const result = await showcaseLoader(mpSdk, mpModels, videoRef); // 쇼케이스 로더 => 대부분의 작업을 여기서??
+        setBindArr(result);
     };
 
     const handleStart = () => {
@@ -61,8 +70,7 @@ export default function MainUi ({
     return(
         <>
             { mpModels.video[0] && ( 
-                // <VideoComp mpModels={mpModels} bindArr={bindArr}/> 
-                <div></div>
+                <VideoComp mpModels={mpModels}/> 
             )}
             { isLoading && ( 
                 <div className={styles.loading_page} >
@@ -122,7 +130,10 @@ export default function MainUi ({
                 </div>
             )}
 
-            {/* {fullyReady && (<DropdownTagList iframe={selIframe.current} bindArr={bindArr} mpModels={mpModels} modelInfo={modelInfo}></DropdownTagList>)} */}
+            {!isLoading && (
+                <></>
+                // <DropdownTagList iframe={selIframe.current} bindArr={bindArr} mpModels={mpModels} modelInfo={modelInfo}></DropdownTagList>
+            )}
 
             <MpWebComp mpModels = {mpModels} isLoading = {isLoading} handleLoading = {handleLoading} />
 

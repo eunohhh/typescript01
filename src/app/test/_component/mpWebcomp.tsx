@@ -67,12 +67,14 @@ export default function MpWebComp({
 
     // 조각모음 nnuReNVjN1A
 
+    // 집 NKeB4M7xhbj
+
     return(
         <Suspense fallback={<div>Loading...</div>}>
             <div style={{ opacity : isLoading ? "0" : "1"}} ref={mpWrapperRef}>
                 <MatterportViewer
                     id="mpviewer"
-                    m="NKeB4M7xhbj"
+                    m="nnuReNVjN1A"
                     src="&newtags=1&lang=en&play=1&title=0&brand=0&qs=1&help=0"
                     assetBase="matterport-assets/"
                     applicationKey={process.env.NEXT_PUBLIC_MPSDKKEY}
