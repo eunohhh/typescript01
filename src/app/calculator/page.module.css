@@ -1,0 +1,140 @@
+.flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 45%;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 0.5rem;
+}
+
+.wrapper button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    margin: 0;
+    padding: 1rem;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 70%;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.wrapper button:hover{
+    filter: contrast(2);
+    outline: 0;
+}
+.wrapper button:disabled {
+    opacity: 0.5;
+}
+
+.numDisplay{
+    position: relative;
+    height: 20%;
+    width: 92%;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+}
+
+.pads{
+    position: relative;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftCol{
+    position: relative;
+    width: 75%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.rightCol{
+    position: relative;
+    width: 25%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.rightCol button:focus,
+.rightCol button:active{
+    filter: contrast(2);
+    outline: 0;
+} 
+
+.padTop{
+    position: relative;
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.numPad{
+    position: relative;
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    /* gap: 10px; */
+}
+.numPad :nth-child(1){ order: 3; }
+.numPad :nth-child(2){ order: 2; }
+.numPad :nth-child(3){ order: 1; }
+.numPad :nth-child(4){ order: 4; }
+.numPad :nth-child(5){ order: 5; }
+.numPad :nth-child(6){ order: 6; }
+.numPad :nth-child(7){ order: 9; }
+.numPad :nth-child(8){ order: 9; }
+.numPad :nth-child(9){ order: 7; }
+.numPad :nth-child(10){ order: 11; }
+.numPad :nth-child(11){
+    grid-column: 1 / span 2;
+    order: 10; 
+}
+.numPad :nth-child(11) button{
+    width: 80%;
+    border-radius: 35px;
+}
+
+.btn{
+    border-radius: 50%;
+}
+
+.grey{
+    background-color: rgb(160, 160, 160);
+    color: black;
+}
+
+.orange{
+    background-color: rgb(255, 157, 37);
+    color: white;
+}
+
+.darkgrey{
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
